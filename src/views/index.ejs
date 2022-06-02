@@ -1,0 +1,35 @@
+<%- include('./includes/head')%>
+<link rel="stylesheet" href="/assets/css/home">
+<%- include('./includes/navbar.ejs') %>
+
+
+<div class="row w-100 m-0">
+  <div class="col my-3">
+    <h1 class="text-center">Agenda</h1>
+    <%- include('./includes/messages.ejs')%>
+
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table text-center text-nowrap" style="color: white; font-size: 3vw;">
+    <tr>
+      <th>Nome</th>
+      <th>Numero</th>
+      <th>Email</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <% contatos.forEach(contato => { %>
+    <tr>
+      <td><%= contato.nome %> </td>
+      <td><%= contato.telefone %></td>
+      <td><%= contato.email %></td>
+      <td><a href="/contato/<%=contato._id%>">Editar</a></td>
+      <td><a class="text-danger" href="/contato/delete/<%= contato._id %> ">Excluir</a></td>
+    </tr>
+    <% }) %>
+
+  </table>
+</div>
+
+<%- include('./includes/footer') %>
