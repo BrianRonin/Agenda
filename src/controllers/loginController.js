@@ -4,6 +4,7 @@ exports.index = (req, res) => {
   res.render("login", {
     csrfToken: req.csrfToken(),
   });
+  //res.send("login paginaaaa");
 
   return;
 };

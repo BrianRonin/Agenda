@@ -1,3 +1,4 @@
+("use strict");
 const path = require("path"); // path pra resolver caminhos
 const express = require("express"); //express
 const app = express();
@@ -68,7 +69,8 @@ app.use(middlewareGlobal);
  * configurar a pasta public que vai conter os
  * conteudos estaticos do projeto como imagens logos css
  */
-app.use(express.static("./public"));
+app.use(express.static(__dirname + "/public"));
+//app.use(express.static("./public"));
 
 /*** views engine ***\
  * app.set = configuração do express
@@ -121,5 +123,7 @@ app.use(routes);
  */
 app.on("mongoON", () => {
   // servidor escuta agora apenas após a conexão com a DB
-  app.listen(3000, console.log("servidor on http://localhost"));
+  app.listen(80, console.info("servidor on 1"));
 });
+
+module.exports = app;

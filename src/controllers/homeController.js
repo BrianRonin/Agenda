@@ -7,5 +7,4 @@ exports.index = async function (req, res) {
     csrfToken: req.csrfToken(),
     contatos: contatos,
   });
-  return;
 };
